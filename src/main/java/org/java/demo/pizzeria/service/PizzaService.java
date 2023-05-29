@@ -22,8 +22,11 @@ public class PizzaService {
 		
 		return pizzaRepository.save(pizza);
 	}
-	public Optional<Pizza> findById(int id) {
+	public Optional<Pizza> findById(Integer id) {
 		
 		return pizzaRepository.findById(id);
+	}
+	public List<Pizza> findBySearch(String name ){
+		return pizzaRepository.findByNameContaining(name);
 	}
 }

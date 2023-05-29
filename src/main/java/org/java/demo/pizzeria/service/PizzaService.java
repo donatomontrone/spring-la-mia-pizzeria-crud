@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.java.demo.pizzeria.pojo.Pizza;
-import org.java.demo.pizzeria.repo.PizzaRepository;
+import org.java.demo.pizzeria.repo.PizzaRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class PizzaService {
 
 	@Autowired
-	private PizzaRepository pizzaRepository;
+	private PizzaRepo pizzaRepository;
 	
 	public List<Pizza> findAll() {
 		

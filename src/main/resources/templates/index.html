@@ -19,6 +19,7 @@
 		<main>
 			<div class="container">
 				<div class="row justify-content-center">
+					<div class="col-12 text-end"><a th:href="@{/pizzas/create}" class="btn small btn-outline-success"><i class="fa-solid fa-plus"></i> Aggiungi</a></div>
 					<table class="table" th:if="${pizzas.size() > 0}">
 						<thead>
 							<tr>
@@ -39,7 +40,7 @@
 										class="text-black text-decoration-none">[[*{name}]]</a></th>
 								<td colspan="2">[[*{description}]]</th>
 								<td>[[*{price}]],00 &euro;</th>
-								<td><a th:href="@{/pizzas/{id} (id=*{id})}" class="btn btn-sm btn-primary">Show</a></td>
+								<td><a th:href="@{/pizzas/{id} (id=*{id})}" class="btn btn-sm btn-primary"><i class="fa-solid fa-circle-info"></i></a></td>
 							</tr>
 						</tbody>
 					</table>

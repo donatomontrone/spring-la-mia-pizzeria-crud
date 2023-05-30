@@ -29,7 +29,7 @@ public class SpringLaMiaPizzeriaCrudApplication implements CommandLineRunner{
 			    new Pizza("Pepperoni", "Pizza con pomodoro, mozzarella e salame pepperoni", "https://i.pinimg.com/originals/34/cd/98/34cd98a30cd58f85e25e56a9030ca06c.jpg", 10),
 			    new Pizza("Funghi", "Pizza con pomodoro, mozzarella e funghi freschi", "https://thumbs.dreamstime.com/b/pizza-funghi-38306248.jpg", 9),
 			    new Pizza("Quattro Formaggi", "Pizza con pomodoro e una selezione di quattro formaggi", "https://www.pizzus.it/wp-content/uploads/2019/11/focus.png", 12),
-			    new Pizza("Napoletana", "Pizza con pomodoro, mozzarella, acciughe e olive nere", "https://www.cannizzarobros.it/wp-content/uploads/2022/09/Napoletana.png", 11),
+			    new Pizza("Wurstel", "Pizza con pomodoro, mozzarella e wurstel", "https://www.oipulpit.it/wp-content/uploads/2021/03/pizza-wurstel.jpg", 9),
 			    new Pizza("Hawaiian", "Pizza con pomodoro, mozzarella, prosciutto cotto e ananas", "https://media.istockphoto.com/id/503580316/photo/pizza-with-pineapple-and-ham-on-white-background.jpg?s=612x612&w=0&k=20&c=CArlgKntmtUpZENENw0plUmIo3jau3TjHKQ7gPXzfZc=", 10),
 			    new Pizza("Capricciosa", "Pizza con pomodoro, mozzarella, prosciutto cotto, funghi e olive", "https://www.origanoadomicilio.it/wp-content/uploads/2020/03/pizza-capricciosa.jpg", 11),
 			    new Pizza("Diavola", "Pizza con pomodoro, mozzarella e salame piccante", "https://www.lapastadij-momo.it/wp-content/uploads/2020/09/diavola.jpg", 10),

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 
 <head>
 <meta charset="UTF-8">
@@ -18,32 +18,47 @@
 	<header>
 		<th:block th:replace="~{fragments/header :: header}"></th:block>
 	</header>
-	<main>
+	<main th:object="${pizza}">
 		<div class="container">
-					<div class="row">
+			<div class="row">
 				<h3>Aggiungi una nuova pizza</h3>
 			</div>
 			<form class="row g-3" method="POST">
-			
+
 				<div class="col-md-6">
 					<label for="pizzaName" class="form-label">Nome della pizza</label>
-					<input type="text" class="form-control" id="pizzaName" name="name">
+					<input type="text" th:class="${(errors != null && errors.hasFieldErrors('name')) ? 'is-invalid' : ''} + ' form-control'" id="pizzaName" name="name" th:value="*{name}">
+					<div class="invalid-feedback"
+						th:if="${errors != null && errors.hasFieldErrors('name')}">
+						[[ ${errors.getFieldError('name').getDefaultMessage()} ]]
+					</div>
 				</div>
 				<div class="col-md-6">
-					<label for="imgPath" class="form-label">Url dell'immagine</label> <input
-						type="text" class="form-control" id="imgPath" name="imgPath">
+					<label for="imgPath" class="form-label">Url dell'immagine</label>
+					<input type="text" th:class="${(errors != null && errors.hasFieldErrors('imgPath')) ? 'is-invalid' : ''} + ' form-control'" id="imgPath" name="imgPath" th:value="*{imgPath}">
+					<div class="invalid-feedback"
+						th:if="${errors != null && errors.hasFieldErrors('imgPath')}">
+						[[ ${errors.getFieldError('imgPath').getDefaultMessage()} ]]
+					</div>
 				</div>
 				<div class="col-md-8">
 					<label for="description" class="form-label">Descrizione</label>
-					<textarea class="form-control" id="description" rows="1"
-						name="description"></textarea>
+					<textarea th:class="${(errors != null && errors.hasFieldErrors('description')) ? 'is-invalid' : ''} + ' form-control'" id="description" rows="1"
+						name="description">[[*{description}]]</textarea>
+					<div class="invalid-feedback"
+						th:if="${errors != null && errors.hasFieldErrors('description')}">
+						[[ ${errors.getFieldError('description').getDefaultMessage()} ]]
+					</div>
 				</div>
 				<div class="col-md-4">
 					<label for="price" class="form-label">Prezzo</label>
 					<div class="input-group">
-						<input type="number" class="form-control text-end" id="price"
-							name="price">
+						<input type="number" th:class="${(errors != null && errors.hasFieldErrors('price')) ? 'is-invalid' : ''} + ' form-control text-end'" id="price"
+							name="price" th:value="*{price}">
 						<div class="input-group-text">,00 &euro;</div>
+						<div class="invalid-feedback"
+							th:if="${errors != null && errors.hasFieldErrors('price')}">
+							[[ ${errors.getFieldError('price').getDefaultMessage()} ]]</div>
 					</div>
 				</div>
 				<div class="col-12">

@@ -29,7 +29,7 @@ public class PizzeriaController {
 		return "index";
 	}
 	@PostMapping("/pizzas")
-	public String getIndexByName(Model model, @RequestParam(required = false) String name) {
+	public String getIndexByName(Model model, @RequestParam(required = false ) String name) {
 		List<Pizza> pizzas = pizzaService.findBySearch(name);
 		model.addAttribute("pizzas", pizzas);
 		model.addAttribute("name", name);
@@ -60,4 +60,33 @@ public class PizzeriaController {
 		Integer id = pizza.getId();
 		return "redirect:/pizzas/" + id;
 	}
+	
+	@GetMapping("/pizzas/edit/{id}")
+	public String edit(Model model, 
+			@PathVariable("id") Integer id) {
+		
+		Optional<Pizza> oPizza = pizzaService.findById(id);
+		Pizza pizza = oPizza.get();
+		System.out.println(pizza);
+		model.addAttribute("pizza", pizza);
+		
+		return "edit";
+	}
+	
+	@PostMapping("/pizzas/edit/{id}")
+	public String update(@PathVariable("id") Integer id, @ModelAttribute Pizza pizza) {
+		
+		pizzaService.save(pizza);
+		return "redirect:/pizzas/{id}";
+	}
+	
+	@GetMapping("/pizzas/delete/{id}")
+	public String delete(@PathVariable("id") Integer id) {
+		Optional<Pizza> oPizza = pizzaService.findById(id);
+		Pizza pizza = oPizza.get();
+		pizzaService.delete(pizza);
+		return "redirect:/";
+	}
+	
+	
 }

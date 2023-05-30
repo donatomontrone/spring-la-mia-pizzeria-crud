@@ -20,29 +20,28 @@
 	</header>
 	<main>
 		<div class="container">
-					<div class="row">
-				<h3>Aggiungi una nuova pizza</h3>
+			<div class="row">
+				<h3>Modifica Pizza [[${pizza.name}]]</h3>
 			</div>
-			<form class="row g-3" method="POST">
-			
+			<form class="row g-3" th:action="@{/pizzas/edit/{id} (id=*{id})}" method="POST">
 				<div class="col-md-6">
 					<label for="pizzaName" class="form-label">Nome della pizza</label>
-					<input type="text" class="form-control" id="pizzaName" name="name">
+					<input type="text" class="form-control" id="pizzaName" name="name" th:value="${pizza.name}">
 				</div>
 				<div class="col-md-6">
 					<label for="imgPath" class="form-label">Url dell'immagine</label> <input
-						type="text" class="form-control" id="imgPath" name="imgPath">
+						type="text" class="form-control" id="imgPath" name="imgPath" th:value="${pizza.imgPath}">
 				</div>
 				<div class="col-md-8">
 					<label for="description" class="form-label">Descrizione</label>
 					<textarea class="form-control" id="description" rows="1"
-						name="description"></textarea>
+						name="description" >[[${pizza.description}]]</textarea>
 				</div>
 				<div class="col-md-4">
 					<label for="price" class="form-label">Prezzo</label>
 					<div class="input-group">
 						<input type="number" class="form-control text-end" id="price"
-							name="price">
+							name="price" th:value="${pizza.price}">
 						<div class="input-group-text">,00 &euro;</div>
 					</div>
 				</div>
